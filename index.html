@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criativo Lucrativo — Juh Santos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <style>
+
+        /* ── RESET ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold:    #C8965A;
+            --dark:    #1a1a1a;
+            --gray-bg: #e4e6ea;
+            --white:   #ffffff;
+            --text-muted: #555555;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background: var(--gray-bg);
+        }
+
+        /* ══════════════════════════════
+           HERO
+        ══════════════════════════════ */
+        .hero {
+            background: var(--gray-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 48px 5% 64px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* LOGO */
+        .logo {
+            margin-bottom: 44px;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+        }
+        .logo__top {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 5px;
+            color: var(--dark);
+            text-transform: uppercase;
+        }
+        .logo__bottom {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 5px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        .logo__star {
+            position: absolute;
+            font-size: 11px;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .logo__star--tr { top: -4px;  right: 2px; }
+        .logo__star--bl { bottom: -2px; left: -12px; }
+
+        /* HEADLINE */
+        .hero__headline {
+            max-width: 660px;
+            margin-bottom: 14px;
+        }
+        .hero__headline h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--dark);
+        }
+        .hero__headline h1 .accent {
+            color: var(--gold);
+        }
+
+        /* SUBTEXT */
+        .hero__subtext {
+            max-width: 560px;
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        /* FORM */
+        .form-wrap {
+            width: 100%;
+            max-width: 480px;
+        }
+        .form-wrap input {
+            display: block;
+            width: 100%;
+            padding: 15px 18px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: var(--dark);
+            background: var(--white);
+            border: 1.5px solid #d0d0d0;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            outline: none;
+            transition: border-color .2s;
+        }
+        .form-wrap input:focus { border-color: var(--gold); }
+        .form-wrap input::placeholder { color: #aaa; }
+
+        .phone-row {
+            display: flex;
+        }
+        .phone-flag {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 15px 14px;
+            background: var(--white);
+            border: 1.5px solid #d0d0d0;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 13px;
+            white-space: nowrap;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        .phone-row input {
+            border-radius: 0 4px 4px 0 !important;
+            flex: 1;
+        }
+
+        .btn-gold {
+            display: block;
+            width: 100%;
+            padding: 17px;
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: opacity .2s;
+        }
+        .btn-gold:hover { opacity: .88; }
+
+        /* EVENT INFO */
+        .event-info {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+        .event-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            line-height: 1.5;
+        }
+        .event-item .icon {
+            font-size: 26px;
+            color: var(--gold);
+        }
+
+        /* SECONDARY CTA */
+        .secondary-cta {
+            margin-top: 28px;
+        }
+        .secondary-cta p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        .btn-blue {
+            display: inline-block;
+            padding: 15px 36px;
+            background: #4BBFD4;
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity .2s;
+        }
+        .btn-blue:hover { opacity: .88; }
+
+        /* ══════════════════════════════
+           TICKER
+        ══════════════════════════════ */
+        .ticker {
+            background: var(--gold);
+            padding: 13px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker__track {
+            display: inline-flex;
+            animation: scroll-ticker 25s linear infinite;
+        }
+        .ticker__item {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dark);
+            padding: 0 40px;
+        }
+        @keyframes scroll-ticker {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        /* ══════════════════════════════
+           BENEFITS
+        ══════════════════════════════ */
+        .benefits {
+            background: var(--white);
+            padding: 80px 5%;
+            text-align: center;
+        }
+        .benefits__inner { max-width: 860px; margin: 0 auto; }
+
+        .benefits h2 {
+            font-size: clamp(26px, 4vw, 40px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+        .benefits h2 .accent { color: var(--gold); }
+
+        .benefits__sub {
+            font-size: 16px;
+            color: #888;
+            max-width: 520px;
+            margin: 0 auto 48px;
+            line-height: 1.6;
+        }
+
+        .benefits__lead {
+            font-size: clamp(26px, 4vw, 40px);
+            font-weight: 800;
+            margin-bottom: 32px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            max-width: 640px;
+            margin: 0 auto 44px;
+        }
+        .card {
+            background: #f4f4f4;
+            border-radius: 14px;
+            padding: 28px 26px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            text-align: center;
+        }
+        .card--bottom {
+            grid-column: 1 / -1;
+            max-width: 380px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .btn-gold-outline {
+            display: inline-block;
+            padding: 16px 48px;
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity .2s;
+        }
+        .btn-gold-outline:hover { opacity: .88; }
+
+        /* ══════════════════════════════
+           SOCIAL PROOF
+        ══════════════════════════════ */
+        .proof {
+            background: var(--gray-bg);
+            padding: 80px 5%;
+        }
+        .proof__title {
+            font-size: clamp(26px, 4vw, 40px);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        /* WhatsApp mock */
+        .ws-wrap {
+            background: #ece5dd;
+            border-radius: 14px;
+            padding: 18px;
+            max-width: 320px;
+            position: relative;
+        }
+        .ws-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .ws-nav .arrow { font-size: 18px; color: #555; }
+        .ws-avatar {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: #bbb;
+        }
+        .ws-name { font-size: 12px; font-weight: 700; }
+        .ws-bubble {
+            background: #dcf8c6;
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 13px;
+            line-height: 1.55;
+            color: #222;
+            position: relative;
+        }
+        .ws-bubble .ws-sender {
+            font-weight: 700;
+            font-size: 11px;
+            color: #25a244;
+            margin-bottom: 5px;
+        }
+        .ws-bubble .ws-time {
+            font-size: 11px;
+            color: #999;
+            text-align: right;
+            margin-top: 8px;
+        }
+        .ws-reactions {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .proof__inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 40px 60px;
+            align-items: center;
+        }
+        /* Linha 1: título (esq) | carrossel (dir) */
+        .proof__title { grid-column: 1; grid-row: 1; }
+        .proof__carousel-wrap { grid-column: 2; grid-row: 1; }
+
+        /* Linha 2: foto (esq) | tagline (dir) */
+        .proof__photo-wrap { grid-column: 1; grid-row: 2; }
+        .proof__tagline-wrap { grid-column: 2; grid-row: 2; }
+
+        .proof__tagline {
+            font-size: clamp(26px, 4vw, 40px);
+            font-weight: 800;
+            line-height: 1.3;
+        }
+        .proof__photo {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            object-position: center 30%;
+            border-radius: 18px;
+            background: #c0c0c0;
+            display: block;
+        }
+
+        /* Carousel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+        }
+        .carousel__track {
+            overflow: hidden;
+            border-radius: 14px;
+        }
+        .carousel__slides {
+            display: flex;
+            transition: transform .4s ease;
+        }
+        .carousel__slides img {
+            min-width: 100%;
+            width: 100%;
+            border-radius: 14px;
+            object-fit: contain;
+            display: block;
+        }
+        .carousel__btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            color: var(--dark);
+            transition: opacity .2s;
+        }
+        .carousel__btn:hover { opacity: .75; }
+        .carousel__btn--prev { left: -18px; }
+        .carousel__btn--next { right: -18px; }
+        .carousel__dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 14px;
+        }
+        .carousel__dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background .2s;
+        }
+        .carousel__dot.active { background: var(--gold); }
+
+        /* ══════════════════════════════
+           AUTHORITY
+        ══════════════════════════════ */
+        .authority {
+            background: var(--gray-bg);
+            padding: 80px 5%;
+            border-top: 1px solid #d8d8d8;
+        }
+        .authority__inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .authority h2 {
+            font-size: clamp(26px, 4vw, 40px);
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+        .authority h2 .accent {
+            color: var(--gold);
+            font-weight: 800;
+        }
+
+        .authority hr {
+            border: none;
+            border-top: 1.5px solid #333;
+            margin-bottom: 24px;
+        }
+
+        .authority p {
+            font-size: 14px;
+            line-height: 1.75;
+            color: #444;
+            margin-bottom: 18px;
+        }
+
+        .signature {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 48px;
+            font-weight: 400;
+            color: #555;
+            margin: 20px 0 28px;
+            line-height: 1.2;
+        }
+
+        /* Photos grid */
+        .photos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .photos-grid__item {
+            background: #b8b8b8; /* placeholder — substituir por fotos reais */
+            border-radius: 14px;
+            height: 190px;
+        }
+        .photos-grid__item--wide {
+            grid-column: span 2;
+            height: 210px;
+        }
+        .photos-grid__item--tall {
+            height: 250px;
+        }
+
+        /* ══════════════════════════════
+           FOOTER
+        ══════════════════════════════ */
+        .footer {
+            background: var(--gray-bg);
+            padding: 60px 5% 48px;
+            text-align: center;
+            border-top: 1px solid #d8d8d8;
+        }
+        .footer__logo {
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+        }
+        .footer__logo .top {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 5px;
+            color: var(--dark);
+            text-transform: uppercase;
+        }
+        .footer__logo .bottom {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 5px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        .footer__plus {
+            display: block;
+            font-size: 18px;
+            color: var(--gold);
+            margin-top: 2px;
+        }
+
+        /* ══════════════════════════════
+           RESPONSIVE
+        ══════════════════════════════ */
+        @media (max-width: 700px) {
+
+            /* HERO */
+            .hero {
+                padding: 36px 5% 48px;
+                align-items: center;
+                text-align: center;
+            }
+            .hero__headline, .hero__subtext,
+            .form-wrap, .event-info, .secondary-cta { max-width: 100%; }
+            .hero__headline h1 { font-size: 30px; }
+            .event-info { justify-content: center; gap: 16px; }
+            .event-item { font-size: 11px; }
+            .event-item .icon { font-size: 20px; }
+
+            /* BENEFITS */
+            .benefits { padding: 56px 5%; }
+            .benefits h2 { font-size: 24px; }
+            .benefits__sub { font-size: 14px; }
+            .benefits__lead { font-size: 24px; }
+            .cards {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+            .card--bottom {
+                grid-column: 1;
+                max-width: 100%;
+            }
+            .card { font-size: 14px; }
+
+            /* SOCIAL PROOF */
+            .proof { padding: 56px 5%; }
+            .proof__inner {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 32px;
+            }
+            .proof__title    { grid-column: 1; grid-row: 1; font-size: 24px; }
+            .proof__carousel-wrap { grid-column: 1; grid-row: 2; }
+            .proof__photo-wrap   { grid-column: 1; grid-row: 3; }
+            .proof__tagline-wrap { grid-column: 1; grid-row: 4; }
+            .proof__photo { height: 280px; }
+            .proof__tagline { font-size: 22px; }
+            .carousel { max-width: 100%; }
+            .carousel__btn--prev { left: -10px; }
+            .carousel__btn--next { right: -10px; }
+
+            /* AUTHORITY */
+            .authority { padding: 56px 5%; }
+            .authority__inner {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .authority h2 { font-size: 24px; }
+            .authority p  { font-size: 13px; }
+            .signature    { font-size: 38px; }
+
+            /* FOOTER */
+            .footer { padding: 40px 5% 32px; }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+
+    <div class="logo">
+        <span class="logo__star logo__star--tr">✦</span>
+        <span class="logo__top">CRIATIVO</span>
+        <span class="logo__bottom">LUCRATIVO</span>
+        <span class="logo__star logo__star--bl">✦</span>
+    </div>
+
+    <div class="hero__headline">
+        <h1>
+            Monte a sua <span class="accent">estratégia de conteúdo</span> para o ano mais competitivo do Instagram e transforme seguidores em clientes de verdade
+        </h1>
+    </div>
+
+    <p class="hero__subtext">
+        Em uma aula ao vivo, você vai sair com a estratégia completa para
+        aparecer, criar e vender no Instagram, mesmo começando do zero.
+        Inscreva-se gratuitamente abaixo.
+    </p>
+
+    <!-- FORM -->
+    <div class="form-wrap">
+        <input type="email" placeholder="* Seu e-mail principal" />
+        <div class="phone-row">
+            <div class="phone-flag">🇧🇷 +55</div>
+            <input type="tel" placeholder="* Seu WhatsApp com DDD" />
+        </div>
+        <button class="btn-gold">QUERO PARTICIPAR</button>
+    </div>
+
+    <div class="event-info">
+        <div class="event-item">
+            <span class="icon">📅</span>
+            <span>DIA 25<br>DE JUNHO</span>
+        </div>
+        <div class="event-item">
+            <span class="icon">🕗</span>
+            <span>ÀS 20:00</span>
+        </div>
+        <div class="event-item">
+            <span class="icon">🔒</span>
+            <span>CONVITE PRIVADO</span>
+        </div>
+    </div>
+
+    <!-- FALLBACK CTA -->
+    <div class="secondary-cta">
+        <p>Não conseguiu se inscrever? Clique no botão<br>abaixo para ser adicionado manualmente!</p>
+        <!-- href: link do grupo de WhatsApp -->
+        <a href="#" class="btn-blue">SER ADICIONADO</a>
+    </div>
+
+</section>
+
+<!-- ══════════ TICKER ══════════ -->
+<div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+        <!-- Duplicar para loop sem pausa -->
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <!-- Cópia para loop contínuo -->
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+    </div>
+</div>
+
+<!-- ══════════ BENEFITS ══════════ -->
+<section class="benefits">
+    <div class="benefits__inner">
+
+        <h2>
+            Você vai criar e vender no Instagram no
+            <span class="accent">momento mais disputado</span> para atenção da história
+        </h2>
+
+        <p class="benefits__sub">
+            Todo mundo está tentando aparecer no Instagram em 2026. Mas aparecer não basta,
+            criar conteúdo com estratégia é o que separa quem vende de quem apenas posta.
+        </p>
+
+        <h3 class="benefits__lead">Você vai sair da<br>imersão com...</h3>
+
+        <div class="cards">
+            <div class="card">
+                Clareza sobre o que falar, para quem falar e como ser lembrada como
+                <strong>referência no Instagram</strong>, sem copiar ninguém.
+            </div>
+            <div class="card">
+                A estrutura completa de um vídeo que retém, engaja e
+                <strong>converte seguidores em clientes</strong>, mesmo sem equipamento caro.
+            </div>
+            <div class="card card--bottom">
+                Como usar <strong>inteligência artificial</strong> para criar mais conteúdo
+                em menos tempo sem perder a sua voz e autenticidade.
+            </div>
+        </div>
+
+        <!-- href: âncora do formulário no topo -->
+        <a href="#" class="btn-gold-outline">QUERO ME INSCREVER</a>
+
+    </div>
+</section>
+
+<!-- ══════════ TICKER 2 ══════════ -->
+<div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+        <span class="ticker__item">CRIATIVO LUCRATIVO</span>
+        <span class="ticker__item">•</span>
+    </div>
+</div>
+
+<!-- ══════════ SOCIAL PROOF ══════════ -->
+<section class="proof">
+    <div class="proof__inner">
+
+        <!-- Linha 1, esquerda: título -->
+        <h2 class="proof__title">É isso que aconteceu com quem aprendeu o método...</h2>
+
+        <!-- Linha 1, direita: carrossel -->
+        <div class="proof__carousel-wrap">
+            <div class="carousel" id="carousel">
+                <button class="carousel__btn carousel__btn--prev" onclick="moveSlide(-1)">&#8249;</button>
+                <div class="carousel__track">
+                    <div class="carousel__slides" id="slides">
+                        <img src="dep-1.jpeg" alt="Depoimento 1" />
+                        <img src="dep-2.jpeg" alt="Depoimento 2" />
+                        <img src="dep-3.jpeg" alt="Depoimento 3" />
+                        <img src="dep-4.jpeg" alt="Depoimento 4" />
+                        <img src="dep-5.jpeg" alt="Depoimento 5" />
+                        <img src="dep-6.jpeg" alt="Depoimento 6" />
+                        <img src="dep-7.jpeg" alt="Depoimento 7" />
+                    </div>
+                </div>
+                <button class="carousel__btn carousel__btn--next" onclick="moveSlide(1)">&#8250;</button>
+                <div class="carousel__dots" id="dots"></div>
+            </div>
+        </div>
+
+        <!-- Linha 2, esquerda: foto da Juh -->
+        <div class="proof__photo-wrap">
+            <img src="foto-juh-prova.JPG" alt="Juh Santos" class="proof__photo" />
+        </div>
+
+        <!-- Linha 2, direita: tagline -->
+        <div class="proof__tagline-wrap">
+            <p class="proof__tagline">
+                Seus sonhos de 2026 estão a um método de criação de distância
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════ AUTHORITY ══════════ -->
+<section class="authority">
+    <div class="authority__inner">
+
+        <div>
+            <h2>Por que você deveria ouvir a <span class="accent">Juh Santos</span></h2>
+            <hr>
+            <p>
+                Juh Santos começou no Instagram do zero, sem saber editar, sem saber o que falar,
+                sem certeza de que alguém ia ouvir e com medo do que as pessoas iriam comentar.
+            </p>
+            <p>
+                Com o tempo, descobriu que o medo não era o problema, mas o sinal de que algo
+                importante estava prestes a acontecer. E foi construindo, passo a passo, um perfil
+                de referência em criação de conteúdo e um negócio digital real.
+            </p>
+            <p>
+                Foi através da criação de conteúdo que ela conquistou sua liberdade financeira e
+                descobriu o poder de transformar a própria história em algo que inspira e gera renda.
+            </p>
+            <p>
+                Hoje, ensina pessoas a criarem conteúdo com autenticidade, estratégia e propósito.
+                Já são mais de 5.000 pessoas que aprenderam a aparecer, criar e vender pelo Instagram.
+            </p>
+            <div class="signature">Juh Santos</div>
+            <a href="#" class="btn-gold">QUERO APRENDER COM A JUH</a>
+        </div>
+
+        <img src="foto-juh-bio.PNG" alt="Juh Santos" style="width:100%; border-radius:16px; object-fit:cover;" />
+
+    </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+    <div class="footer__logo">
+        <span class="logo__star logo__star--tr">✦</span>
+        <span class="top">CRIATIVO</span>
+        <span class="bottom">LUCRATIVO</span>
+        <span class="logo__star logo__star--bl">✦</span>
+    </div>
+</footer>
+
+<script>
+    const slidesEl   = document.getElementById('slides');
+    const dotsContainer = document.getElementById('dots');
+    const originalSlides = Array.from(slidesEl.children);
+    const total = originalSlides.length;
+
+    // Clona primeiro e último para loop infinito sem salto
+    const cloneFirst = originalSlides[0].cloneNode(true);
+    const cloneLast  = originalSlides[total - 1].cloneNode(true);
+    slidesEl.appendChild(cloneFirst);
+    slidesEl.insertBefore(cloneLast, slidesEl.firstChild);
+
+    // Começa no slide real 1 (índice 1, após o clone do último)
+    let current = 1;
+    let isTransitioning = false;
+    slidesEl.style.transform = `translateX(-${current * 100}%)`;
+
+    // Dots
+    for (let i = 0; i < total; i++) {
+        const d = document.createElement('div');
+        d.className = 'carousel__dot' + (i === 0 ? ' active' : '');
+        d.onclick = () => goTo(i + 1);
+        dotsContainer.appendChild(d);
+    }
+
+    function updateDots() {
+        let realIndex = current - 1;
+        if (realIndex < 0) realIndex = total - 1;
+        if (realIndex >= total) realIndex = 0;
+        document.querySelectorAll('.carousel__dot').forEach((d, i) => {
+            d.classList.toggle('active', i === realIndex);
+        });
+    }
+
+    function goTo(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        current = index;
+        slidesEl.style.transition = 'transform .4s ease';
+        slidesEl.style.transform  = `translateX(-${current * 100}%)`;
+        updateDots();
+    }
+
+    function moveSlide(dir) { goTo(current + dir); }
+
+    // Ao terminar a transição, salta silenciosamente se estiver num clone
+    slidesEl.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        if (current === 0) {
+            // estava no clone do último → pula para o último real
+            slidesEl.style.transition = 'none';
+            current = total;
+            slidesEl.style.transform = `translateX(-${current * 100}%)`;
+        } else if (current === total + 1) {
+            // estava no clone do primeiro → pula para o primeiro real
+            slidesEl.style.transition = 'none';
+            current = 1;
+            slidesEl.style.transform = `translateX(-${current * 100}%)`;
+        }
+        updateDots();
+    });
+</script>
+</body>
+</html>
